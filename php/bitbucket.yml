@@ -1,0 +1,22 @@
+# The following example
+# 1. Installs your dependencies from composer.json
+# 2. Builds and pushes default images with contents of the current directory (./)
+# 3. Deploys build to your app instance
+
+image: anaxexp/anaxexp-cli
+
+options:
+  docker: true
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - docker
+          - composer
+        script:
+          - anaxexp ci init $ANAXEXP_INSTANCE_UUID
+          - anaxexp ci run -v $HOME/.composer:$HOME/.composer -- composer install --prefer-dist -n --no-dev
+          - anaxexp ci build --from ./
+          - anaxexp ci release
+          - anaxexp ci deploy
