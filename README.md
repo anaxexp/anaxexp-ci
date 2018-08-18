@@ -2,13 +2,14 @@
 
 The following examples ought to help you set up CI/CD workflow on AnaxExp.
 
-See full documentation on CI/CD workflow at https://docs.anaxexp.com/apps/deploy/#cicd
+See full documentation on CI/CD workflow at https://docs.anaxexp.io/apps/deploy/#cicd
 
 ## Third-party CI
 
 ### Static HTML with node
 
 The following example is for managed HTML stack:
+
 1. Installs your dependencies from `package.json`
 2. Runs build
 3. Builds and pushes a docker image (HTTP server) with contents of `./build`
@@ -24,6 +25,7 @@ Example files:
 ### Composer-based PHP app
 
 The following example is for managed PHP-based stacks (Drupal, WordPress, Generic PHP):
+
 1. Installs your dependencies from `composer.json`
 2. Builds and pushes default images with contents of the current directory `./`
 3. Deploys build to your app instance
